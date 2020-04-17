@@ -12,7 +12,7 @@
       <v-row>
         <v-col>
           <v-row align="center" justify="center">
-            <v-img :src="image" height="200px" contain />
+            <v-img :src="image" height="300px" contain />
           </v-row>
         </v-col>
         <v-col>
@@ -42,22 +42,22 @@ export default {
   data() {
     return {
       morning: "...",
-      image: "coq_red.svg"
+      image: "coq_rouge.svg"
     }
   },
   mounted() {
     let hour = new Date().getHours()
     if( hour > 6 && hour < 12) {
       this.morning = "oui !!!"
-      this.image = "coq_green.svg"
+      this.image = "coq_vert.svg"
     } else {
       if( hour < 6 ) {
         this.morning = "non !!! pas encore..."
-        this.image = "coq_red.svg"
+        this.image = "coq_rouge.svg"
       }
       if(hour >= 12) {
         this.morning = "non !!! trop tard..."
-        this.image = "coq_red.svg"
+        this.image = "coq_rouge.svg"
       }
     }
   }
