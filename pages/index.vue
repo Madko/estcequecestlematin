@@ -7,15 +7,13 @@
     <v-flex
       xs12
       sm8
-      md6
+      md8
     >
       <v-row>
         <v-col>
           <v-row align="center" justify="center">
             <v-img :src="image" height="300px" contain />
           </v-row>
-        </v-col>
-        <v-col>
           <v-row align="center" justify="center">
             <div class="text-center">
               <h1>Est-ce que c'est le matin ?</h1>
