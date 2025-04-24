@@ -1,20 +1,20 @@
 {
   "name": "estcequecestlematin",
-  "version": "1.0.0",
-  "description": "Est-ce que c&#39;est le matin ?",
-  "author": "Edouard Bourguignon",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "nuxt": "^3.12.4"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/vuetify": "^1.12.3"
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tsconfig/svelte": "^5.0.4",
+    "svelte": "^5.23.1",
+    "svelte-check": "^4.1.5",
+    "typescript": "~5.7.2",
+    "vite": "^6.3.1"
   }
 }
