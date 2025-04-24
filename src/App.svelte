@@ -1,32 +1,60 @@
 <script lang="ts">
-  let morning: string = "...";
-  let image: string = "coq_noir.svg";
+  import { onMount } from 'svelte';
+
+  let audio_coq;
+  let audio_vache;
+  let click_count: number = 0;
+  const hour: number = new Date().getHours();
   
   function is_it_the_morning() {
-    const hour: number = new Date().getHours();
     if( hour >= 6 && hour < 12) {
-      morning = "Oui !!!";
-      image = "coq_vert.svg";
+      return true;
     } else {
-      if( hour < 6 ) {
-        morning = "Non !!! Pas encore...";
-        image = "coq_rouge.svg";
-      }
-      if(hour >= 12) {
-        morning = "Non !!! Trop tard...";
-        image = "coq_rouge.svg";
-      }
+      return false;
     }
-    return morning;
   }
+
+  function is_it_too_late() {
+    if( hour < 6 ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function handleClick() {
+    click_count++;
+    if( click_count >= 10 ){
+      audio_vache.play();
+      click_count = 0;
+    }
+  }
+
+  onMount(() => {
+    if(is_it_the_morning()) {
+      audio_coq.play();
+    }
+  });
 
 </script>
 
 <main>
   <div class="coq">
-    <img src="{'/' + image}" height="300px" alt="Coq" />
-    <h1>Est-ce que c'est le matin ?</h1>
-    {is_it_the_morning()}
+    {#if is_it_the_morning() }
+      <img src="/coq_vert.svg" height="300px" alt="Coq" on:click={handleClick} />
+      <h1>Est-ce que c'est le matin ?</h1>
+      Oui !!!
+    {:else if is_it_too_late() }
+      <img src="/coq_rouge.svg" height="300px" alt="Coq" on:click={handleClick} />
+      <h1>Est-ce que c'est le matin ?</h1>
+      Non !!! Trop tard...
+    {:else}
+      <img src="/coq_rouge.svg" height="300px" alt="Coq" on:click={handleClick} />
+      <h1>Est-ce que c'est le matin ?</h1>
+      Non !!! Pas encore...
+    {/if}
+    <audio src="/coq.mp3" bind:this={audio_coq}></audio>
+    <audio src="/vache.mp3" bind:this={audio_vache}></audio>
   </div>
   <div class="footer">
   <footer class="footer">
