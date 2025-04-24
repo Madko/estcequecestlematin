@@ -32,13 +32,9 @@
     }
   }
 
-  onMount(() => {
-    if(is_it_the_morning()) {
-      setTimeout(() => {
-        audio_coq.play()
-      },1000);
-    }
-  });
+  setTimeout(() => {
+    audio_coq.play()
+  },1000);
 
 </script>
 
