@@ -34,7 +34,9 @@
 
   onMount(() => {
     if(is_it_the_morning()) {
-      audio_coq.play();
+      setTimeout(() => {
+        audio_coq.play()
+      },1000);
     }
   });
 
