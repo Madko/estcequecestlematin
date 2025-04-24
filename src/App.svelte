@@ -3,24 +3,20 @@
   let image: string = "coq_noir.svg";
   
   function is_it_the_morning() {
-    console.log("Is it the morning ?");
     const hour: number = new Date().getHours();
-    console.log(typeof hour);
-    console.log("Il est " + hour + "h !");
     if( hour >= 6 && hour < 12) {
-      morning = "oui !!!";
+      morning = "Oui !!!";
       image = "coq_vert.svg";
     } else {
       if( hour < 6 ) {
-        morning = "non !!! pas encore...";
+        morning = "Non !!! Pas encore...";
         image = "coq_rouge.svg";
       }
       if(hour >= 12) {
-        morning = "non !!! trop tard...";
+        morning = "Non !!! Trop tard...";
         image = "coq_rouge.svg";
       }
     }
-    console.log(morning);
     return morning;
   }
 
