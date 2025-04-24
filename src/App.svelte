@@ -5,9 +5,11 @@
   let audio_vache;
   let click_count: number = 0;
   const hour: number = new Date().getHours();
+  const morning_start = 6;
+  const morning_end = 12;
   
   function is_it_the_morning() {
-    if( hour >= 6 && hour < 12) {
+    if( hour >= morning_start && hour < morning_end ) {
       return true;
     } else {
       return false;
@@ -15,7 +17,7 @@
   }
 
   function is_it_too_late() {
-    if( hour < 6 ) {
+    if( hour < morning_start ) {
       return false;
     } else {
       return true;
