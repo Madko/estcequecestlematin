@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
   let audio_coq;
   let audio_vache;
   let click_count: number = 0;
