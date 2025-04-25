@@ -24,15 +24,20 @@
 
   function handleClick() {
     click_count++;
+    if( click_count == 1 ) {
+      audio_coq.play();
+    }
     if( click_count >= 10 ){
       audio_vache.play();
       click_count = 0;
     }
   }
 
-  setTimeout(() => {
-    audio_coq.play()
-  },1000);
+  if(is_it_the_morning()) {
+    setTimeout(() => {
+      audio_coq.play()
+    },1000);
+  }
 
 </script>
 
